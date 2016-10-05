@@ -1,7 +1,7 @@
  /*
-12) Construa um algoritmo que avalie se uma matriz A de ordem k È triangular superior ou inferior. 
-Caso seja triangular peÁa ao usu·rio que insira o vetor b. Resolva o sistema Ax = b. 
-Sendo x o vetor soluÁ„o do sistema. Retorne tambÈm um vetor unit·rio de mesma direÁ„o e sentido de x.
+12) Construa um algoritmo que avalie se uma matriz A de ordem k √© triangular superior ou inferior. 
+Caso seja triangular pe√ßa ao usu√°rio que insira o vetor b. Resolva o sistema Ax = b. 
+Sendo x o vetor solu√ß√£o do sistema. Retorne tamb√©m um vetor unit√°rio de mesma dire√ß√£o e sentido de x.
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -136,7 +136,7 @@ int main(void){
 		float v[ordem];
 		
 		for(coluna = 0; coluna < ordem; coluna++){
-			comprimento += x[coluna] * x[coluna];
+			comprimento += pow(x[coluna],2);
 		}
 		
 		comprimento = sqrt(comprimento);
@@ -149,7 +149,7 @@ int main(void){
 			printf("[%f]\n", v[coluna]);
 		}
 	} else {
-		printf("N„o eh triangular superior nem inferior!\n");
+		printf("N√£o eh triangular superior nem inferior!\n");
 	}
 	
 	return 0;
