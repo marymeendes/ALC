@@ -1,4 +1,5 @@
 
+
 #include <stdio.h>
 #include <math.h>
 
@@ -13,14 +14,21 @@ void ehTridiagonal(int ordem, int matriz[ordem][ordem]){
 			{
 	   			if(matriz[i][j] == 0)
 					verifica = 0;		
-			} else if(j == i+1)
-					{
-						if(matriz[i][j] == 0)
-							verifica = 0;
-			} else if(j == i-1)
+			} 
+			else if(j == i+1)
+				{
+					if(matriz[i][j] == 0)
+						verifica = 0;
+				}
+		 		else if(j == i-1)
 					{
 						if(matriz[i][j] == 0)
 						verifica = 0;
+					}
+					else
+					{
+						if(matriz[i][j] != 0)
+							verifica = 0;
 					}
 	  	}	 
 	}
@@ -31,7 +39,7 @@ void ehTridiagonal(int ordem, int matriz[ordem][ordem]){
 		printf("A matriz inserida nao eh matriz tridiagonal.\n");
 }
 
-void ehOrtogonal(int ordem, int matriz[ordem][ordem]){
+/*void ehOrtogonal(int ordem, int matriz[ordem][ordem]){
 	int i, j, verifica = 1;
 		
 	for(i = 0; i < ordem; i++)
@@ -58,9 +66,10 @@ void ehOrtogonal(int ordem, int matriz[ordem][ordem]){
 		printf("A matriz inserida eh matriz tridiagonal.\n");
 	else
 		printf("A matriz inserida nao eh matriz tridiagonal.\n");
-}
+}*/
 
-void zeros_v(int ordem, int mult[ordem])
+//codigo para zerar vetores
+/*void zeros_v(int ordem, int mult[ordem])
 {
 	int i;
 
@@ -68,22 +77,37 @@ void zeros_v(int ordem, int mult[ordem])
 	{
 		mult[i] = 0;
 	}
-}
+}*/
 
-void zeros_m(int linhas, int colunas, int vetor[linhas][colunas])
+//codigo para zerar matrizes
+void zeros_m(int ordem, int matriz[ordem][ordem])
 {
 	int i, j;
 
-	for(i = 0; i < linhas; i++)
+	for(i = 0; i < ordem; i++)
 	{
-		for(j = 0; j < colunas; j++)
+		for(j = 0; j < ordem; j++)
 		{
-			vetor[i][j] = 0;
+			matriz[i][j] = 0;
 		}
 	}
 }
 
-void multiplicacaoMatrizVetor(int ordem, int matriz[ordem][ordem], int vetor[ordem])
+//codigo para imprimir matrizes
+void show_m(int ordem, int matriz[ordem][ordem])
+{
+	int i, j;
+
+	for(i = 0; i < ordem; i++){
+		for(j = 0; j < ordem; j++){
+			printf("%d ", matriz[i][j]);
+		}
+
+		printf("\n");
+	}
+}
+
+/*void multiplicacaoMatrizVetor(int ordem, int matriz[ordem][ordem], int vetor[ordem])
 {
 	int i, j, mult[ordem];
 
@@ -97,11 +121,70 @@ void multiplicacaoMatrizVetor(int ordem, int matriz[ordem][ordem], int vetor[ord
 		}
 		printf("%d\n", mult[i]);
 	}
+}*/
+
+/*void multiplicaTransposta (int ordem, int matriz[ordem][ordem]){
+	int i, j, h, soma = 0;
+	int mTransposta[ordem][ordem];
+	int mult[ordem][ordem];
+	
+	zeros_m(ordem, mTransposta);
+	zeros_m(ordem, mult);
+	
+	for (i=0; i < ordem; i++){
+		for (j=0; j < ordem, j++){
+			mTransposta[j][i] = matriz[i][j];
+		}
+	}
+	
+	for(i = 0; i < ordem; i++){
+		
+		for(j = 0; j < ordem; j++){
+			
+			for(h = 0; h < ordem; h++){
+				soma += matriz[i][h] * mTransposta[h][j];
+			}
+
+			mult[i][j] = soma;
+			soma = 0;
+		}
+
+	}
+		
+}*/
+
+void comparaTransposta (int ordem, int matriz[ordem][ordem]){
+	int i, j, h, verifica = 1;
+	int mTransposta[ordem][ordem];
+	
+	zeros_m(ordem, mTransposta);
+	
+	//construindo a transposta
+	for (i=0; i < ordem; i++){
+		for (j=0; j < ordem; j++){
+			mTransposta[j][i] = matriz[i][j];
+		}
+	}
+	
+	show_m(ordem, mTransposta);
+	
+	//comparando a transposta com a matriz original
+	for(i = 0; i < ordem; i++){
+		
+		for(j = 0; j < ordem; j++){
+			
+			if(matriz[i][j] != mTransposta[i][j])
+				verifica == 0;
+		}
+	}
+	
+	if(verifica)
+		printf("A matriz inserida eh simetrica.");
+	else
+		printf("A matriz inserida nao eh simetrica.");
 }
 
-int transposta (int ordem, )
-
-void ehPositivaDefinida(int ordem, int matriz[ordem][ordem]){
+/*void ehPositivaDefinida(int ordem, int matriz[ordem][ordem]){
 	int i, j, verifica = 1;
 		
 	for(i = 0; i < ordem; i++)
@@ -128,7 +211,7 @@ void ehPositivaDefinida(int ordem, int matriz[ordem][ordem]){
 		printf("A matriz inserida eh matriz tridiagonal.\n");
 	else
 		printf("A matriz inserida nao eh matriz tridiagonal.\n");
-}
+}*/
 
 int main(void)
 {
@@ -154,6 +237,9 @@ int main(void)
 		}
 		
 		printf("----------- Resultado -----------\n");
+		
+		ehTridiagonal(ordem, matriz);
+		comparaTransposta(ordem, matriz);
 		
 	}	
 	return 0;
