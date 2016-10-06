@@ -72,7 +72,6 @@ void ehTridiagonal(int ordem, int matriz[ordem][ordem]){
 /*void zeros_v(int ordem, int mult[ordem])
 {
 	int i;
-
 	for(i = 0; i < dim; i++)
 	{
 		mult[i] = 0;
@@ -110,7 +109,6 @@ void show_m(int ordem, int matriz[ordem][ordem])
 /*void multiplicacaoMatrizVetor(int ordem, int matriz[ordem][ordem], int vetor[ordem])
 {
 	int i, j, mult[ordem];
-
 	zeros_v(ordem, mult);
 	
 	for(i = 0; i < ordem; i++)
@@ -144,16 +142,14 @@ void show_m(int ordem, int matriz[ordem][ordem])
 			for(h = 0; h < ordem; h++){
 				soma += matriz[i][h] * mTransposta[h][j];
 			}
-
 			mult[i][j] = soma;
 			soma = 0;
 		}
-
 	}
 		
 }*/
 
-void comparaTransposta (int ordem, int matriz[ordem][ordem]){
+int comparaTransposta (int ordem, int matriz[ordem][ordem]){
 	int i, j, h, verifica = 1;
 	int mTransposta[ordem][ordem];
 	
@@ -178,40 +174,67 @@ void comparaTransposta (int ordem, int matriz[ordem][ordem]){
 		}
 	}
 	
-	if(verifica)
-		printf("A matriz inserida eh simetrica.");
-	else
-		printf("A matriz inserida nao eh simetrica.");
+	return verifica;	
 }
 
-/*void ehPositivaDefinida(int ordem, int matriz[ordem][ordem]){
-	int i, j, verifica = 1;
-		
-	for(i = 0; i < ordem; i++)
-	{		
-		for(j = 0; j < ordem; j++)
-	  	{
-	   		if(i == j)
-			{
-	   			if(matriz[i][j] == 0)
-					verifica = 0;		
-			} else if(j == i+1)
-					{
-						if(matriz[i][j] == 0)
-							verifica = 0;
-			} else if(j == i-1)
-					{
-						if(matriz[i][j] == 0)
-						verifica = 0;
+int fatorCholesky(int ordem, int matriz[ordem][ordem]){
+	int i, j, k, verifica = 1;
+
+	int R[ordem][ordem];
+
+	zeros_m(ordem, R);  
+
+	for(i=0; i < n; i++){
+
+		for(k=1; k <= i; k++)
+		{
+			if(i != 1)
+				R[i][i] -= pow(matriz[j][i]);
+		}
+
+		if(matriz[i][i] <= 0){
+			verifica = 0;
+		}
+
+		R[i][i] = sqrt(matriz[i][i]);
+
+		for(j=i+1; j < n; j++){
+			
+			if(i != n){
+				
+				for(k=1; k<= i; k++){
+					
+					if (i != 1){
+						R[i][j] -= matriz[k][i]*matriz[k][j]; 
 					}
-	  	}	 
+				}
+
+			}
+
+			R[i][j] /= matriz[i][i];
+		}
 	}
-	
-	if(verifica)
-		printf("A matriz inserida eh matriz tridiagonal.\n");
-	else
-		printf("A matriz inserida nao eh matriz tridiagonal.\n");
-}*/
+
+	show_m(ordem, R);
+
+	return verifica;
+
+}
+
+void ehPositivaDefinida(int ordem, int matriz[ordem][ordem]){
+	int i, j, verifica = 1;
+
+	if(comparaTransposta(ordem, matriz) == 0)
+		verifica = 0;
+		
+	if(fatorCholesky(ordem, matriz) == 0);
+		verifica = 0;
+
+	if(verifica) 
+		printf("A matriz inserida eh Positiva Definida.\n");
+	else 
+		printf("A matriz inserida nao eh Positiva Definida.\n");
+}
 
 int main(void)
 {
@@ -240,7 +263,8 @@ int main(void)
 		
 		ehTridiagonal(ordem, matriz);
 		comparaTransposta(ordem, matriz);
-		
+		ehPositivaDefinida(ordem, matriz)
+;		
 	}	
 	return 0;
 }
