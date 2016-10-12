@@ -1,6 +1,5 @@
-
-/* Questão 1 - a) Algoritmo que recebe uma matriz de >=2 e verifica se ela é uma matriz de Vandermonde
-b)Calcula norma de Frobenius, norma linha, norma coluna de A e produto interno entre a primeira linha e a segunda coluna, bem como o ângulo entre esses dois vetores.
+/* QuestÃ£o 1 - a) Algoritmo que recebe uma matriz de >=2 e verifica se ela Ã© uma matriz de Vandermonde
+b)Calcula norma de Frobenius, norma linha, norma coluna de A e produto interno entre a primeira linha e a segunda coluna, bem como o Ã¢ngulo entre esses dois vetores.
 c)
 */
 
@@ -141,15 +140,15 @@ void anguloDe2Vetores(int ordem, int matriz[ordem][ordem]){
 	cossenoTeta = (float)produtoInterno(ordem, matriz) / (moduloVetorLinha(ordem, matriz) * moduloVetorColuna(ordem, matriz));
 	
 	if(cossenoTeta == 0.866025)
-		printf("Angulo entre os dois vetores eh igual a: 30º\n");
+		printf("Angulo entre os dois vetores eh igual a: 30Âº\n");
 	else if(cossenoTeta == 0.707107)
-		printf("Angulo entre os dois vetores eh igual a: 45º\n");
+		printf("Angulo entre os dois vetores eh igual a: 45Âº\n");
 	else if(cossenoTeta == 0.5)
-		printf("Angulo entre os dois vetores eh igual a: 60º\n");
+		printf("Angulo entre os dois vetores eh igual a: 60Âº\n");
 	else if(cossenoTeta == 0)
-		printf("Angulo entre os dois vetores eh igual a: 90º\n");
+		printf("Angulo entre os dois vetores eh igual a: 90Âº\n");
 	else if(cossenoTeta == -1)
-		printf("Angulo entre os dois vetores eh igual a: 180º\n");	
+		printf("Angulo entre os dois vetores eh igual a: 180Âº\n");	
 	else
 		printf("Angulo entre os dois vetores eh igual ao arc cos(%f)\n", cossenoTeta);	
 }
