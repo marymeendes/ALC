@@ -223,4 +223,4 @@ int main(void)
 	printf("O determinante da matriz e: %d\n", det);
 
 	return 0;
-}                         
+}  
