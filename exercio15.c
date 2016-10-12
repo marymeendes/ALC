@@ -1,7 +1,12 @@
+//Algoritmo da questão 15 da lista
+//Funções: recebe uma matriz A e avalia se ela é tridiagonal, ortogonal ou positiva definida
+//A função fatorCholesky foi adaptada do algoritmo do livro usado nas aulas de ALC,  Fundamentals of Matrix Computations
+//A função ehOrtogonal têm trechos adaptados do algoritmo do site http://coisasdapaloma.blogspot.com.br/2013/01/achar-matriz-inversa-em-c.html
+
 #include <stdio.h>
 #include <math.h>
 
-//PROT�TIPOS
+//PROTÓTIPOS
 
 void show_m(int ordem, float matriz[ordem][ordem]);
 void zeros_m(int ordem, float matriz[ordem][ordem]);
@@ -46,7 +51,7 @@ int main(void)
 	return 0;
 }
 
-//FUNCOES CITADAS NOS PROT�TIPOS
+//FUNCOES CITADAS NOS PROTÓTIPOS
 
 void show_m(int ordem, float matriz[ordem][ordem])
 {
@@ -183,7 +188,7 @@ void fatorCholesky(int ordem, float matriz[ordem][ordem]){
 		
 }
 
-//fun��es que verificam se � ortogonal ou n�o
+//funções que verificam se é ortogonal ou não
 float calculaDeterminante(int ordem, float matrizA[][ordem])
 {   
     int i = 0, j = 0, k = 0;	
