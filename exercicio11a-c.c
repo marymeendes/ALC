@@ -1,13 +1,15 @@
-//Algoritmo para a Questão 11 da lista de ALC
+//Algoritmo para a QuestÃ£o 11 da lista de ALC
 //Letras A e C
-//Recebe uma matriz quadrada, a eleva ao quadrado calcula o traço da matriz resultante, exibindo o número de flops
-//Escolhe, aleatoriamente, duas colunas distintas da matriz inserida e calcula o produto interno entre elas, também 
-//exibindo o número de flops 
+//Recebe uma matriz quadrada, a eleva ao quadrado calcula o traÃ§o da matriz resultante, exibindo o nÃºmero de flops
+//Escolhe, aleatoriamente, duas colunas distintas da matriz inserida e calcula o produto interno entre elas, tambÃ©m 
+//exibindo o nÃºmero de flops 
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+
+///////////////////PROTÃ“TIPOS//////////////////////////////
 
 void show_m(int ordem, float matriz[ordem][ordem]);
 void zeros_m(int ordem, float matriz[ordem][ordem]);
@@ -47,6 +49,8 @@ int main(void)
 	}	
 	return 0;
 }
+
+////////////////////FUNÃ‡Ã•ES DO PROTÃ“TIPO/////////////////////
 
 void show_m(int ordem, float matriz[ordem][ordem])
 {
