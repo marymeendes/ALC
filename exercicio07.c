@@ -140,7 +140,7 @@ int main (void){
 		D[i][i] = 1/matriz[i][i];
 	}
 	
-	// MULTIPLICA«√O
+	// MULTIPLICA√á√ÉO
 	
 	float T[3][3];
 	
