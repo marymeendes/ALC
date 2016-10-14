@@ -1,3 +1,8 @@
+/*
+7) Construa um algoritmo que calcule o w ótima e resolva o sistema Ax = b usando o método
+SOR (definido pelo usuário), onde A e uma matriz positiva definida de ordem 3 e tridiagonal.
+b) Resolva o sistema Ax = b usando a fatoração de Cholesky.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
