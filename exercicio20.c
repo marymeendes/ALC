@@ -1,3 +1,12 @@
+/*
+20) Construa um algoritmo que receba p vetores de tamanho p. Compare as normas de cada
+vetor. Calcule a norma 1, norma 2 e norma infinito. Calcule a distância entre quaisquer desses
+dois vetores usando a norma 1, 2 e infinito. Construa um algoritmo que calcule o produto
+interno e o do ângulo entre quais quer desses dois vetores x e y. Construa um algoritmo que
+calcule a norma 1, norma infinito e norma de Frobenius de matrizes na qual cada vetor
+representa vetor representa uma linha. Calcule a calcule a distância entre quaisquer dessas
+matrizes.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -71,7 +80,7 @@ int main(void){
 		norma = 0;
 	}
 	
-	//DIST�NCIA ENTRE 2 VETORES COM NORMA 1
+	//DISTÂNCIA ENTRE 2 VETORES COM NORMA 1
 	
 	num = 1;
 	somatorio = 0;
@@ -96,7 +105,7 @@ int main(void){
 		}
 	}
 	
-	//DIST�NCIA ENTRE 2 VETORES COM NORMA 2
+	//DISTÂNCIA ENTRE 2 VETORES COM NORMA 2
 	
 	num = 2;
 	somatorio = 0;
@@ -121,7 +130,7 @@ int main(void){
 		}
 	}
 	
-	//DIST�NCIA ENTRE 2 VETORES COM NORMA INFINITO
+	//DISTÂNCIA ENTRE 2 VETORES COM NORMA INFINITO
 	
 	norma = 0;
 	for(i = 0; i < p; i++) {
