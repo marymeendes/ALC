@@ -318,5 +318,5 @@ void ehOrtogonal(int ordem, float matriz[ordem][ordem]){
 		else
 			printf("\nLogo, a matriz inserida nao eh Ortogonal. \n");
 	
-	}else printf("\nDeterminante da matriz inserida eh %.1f e portanto ela nao pode ser ortogonal, pois nao eh inversivel."); 
+	}else printf("\nDeterminante da matriz inserida eh %.1f e portanto ela nao pode ser ortogonal, pois nao eh inversivel.", calculaDeterminante(ordem, matriz)); 
 }
